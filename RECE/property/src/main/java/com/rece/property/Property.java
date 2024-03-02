@@ -1,14 +1,9 @@
 package com.rece.property;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import io.rece.common.valueobject.id.PropertyId;
 
-@Data
-@Entity
+
 public class Property {
-    @Id
-    private Long id;
+
+    private PropertyId id;
 }
