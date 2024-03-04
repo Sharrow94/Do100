@@ -4,5 +4,5 @@ import io.rece.common.valueobject.id.ClientId;
 
 public interface ForRental {
 
-    void startRenting(ClientId clientId);
+    void startRenting(ClientId clientId, RentalOffer offer);
 }
