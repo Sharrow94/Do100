@@ -1,4 +1,4 @@
-package com.rece.property;
+package com.rece.property.property;
 
 public interface PropertyService {
 

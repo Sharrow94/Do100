@@ -1,4 +1,4 @@
-package com.rece.property;
+package com.rece.property.service.sale;
 
 import io.rece.common.valueobject.id.ClientId;
 

@@ -1,9 +1,9 @@
-package com.rece.property;
+package com.rece.property.property;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class PropertyServiceImpl implements PropertyService{
+public class PropertyServiceImpl implements PropertyService {
 
     private final PropertyRepository propertyRepository;
 
