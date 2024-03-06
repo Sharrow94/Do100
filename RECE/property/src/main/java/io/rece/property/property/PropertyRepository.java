@@ -1,4 +1,4 @@
-package com.rece.property.property;
+package io.rece.property.property;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

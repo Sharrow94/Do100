@@ -1,4 +1,4 @@
-package com.rece.property;
+package io.rece.property;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

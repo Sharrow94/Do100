@@ -21,6 +21,7 @@
         <module>exchange</module>
         <module>management</module>
         <module>common</module>
+        <module>rental</module>
     </modules>
 
     <properties>
