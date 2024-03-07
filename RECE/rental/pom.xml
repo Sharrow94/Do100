@@ -10,6 +10,11 @@
     </parent>
 
     <artifactId>rental</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>rental-domain</module>
+    </modules>
 
     <dependencies>
         <dependency>
