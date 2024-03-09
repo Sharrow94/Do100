@@ -7,9 +7,12 @@ import lombok.Data;
 
 @Data
 public class RentalOffer {
+    private RentalOfferId id;
     private PropertyId propertyId;
     private Money price;
     private Money rent;
     private Money deposit;
     private TimeDuration duration;
+
 }
+
