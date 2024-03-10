@@ -2,22 +2,21 @@ package io.rece.rental.domain.core.rental;
 
 import io.rece.common.valueobject.id.ClientId;
 import io.rece.common.valueobject.id.ContractId;
-import io.rece.common.valueobject.id.OwnerId;
-import io.rece.common.valueobject.time.TimeDuration;
+import io.rece.rental.domain.core.rental.offer.RentalOfferId;
+import io.rece.rental.domain.core.rental.offer.RentalTerms;
 
 import java.util.UUID;
 
 public class RentalContract {
-
     private ContractId contractId;
-    private OwnerId ownerId;
+    private RentalOfferId offerId;
     private ClientId clientId;
-    private TimeDuration duration;
+    private RentalTerms terms;
 
-    public RentalContract(OwnerId ownerId, ClientId clientId, TimeDuration duration) {
+    public RentalContract(RentalOfferId offerId, ClientId clientId, RentalTerms terms) {
         this.contractId = new ContractId(UUID.randomUUID());
-        this.ownerId = ownerId;
+        this.offerId = offerId;
         this.clientId = clientId;
-        this.duration = duration;
+        this.terms = terms;
     }
 }
