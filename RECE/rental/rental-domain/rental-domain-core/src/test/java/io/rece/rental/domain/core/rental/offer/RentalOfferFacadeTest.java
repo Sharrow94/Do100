@@ -15,12 +15,13 @@ class RentalOfferFacadeTest {
         RentalOfferId offerId = new RentalOfferId(UUID.randomUUID());
         PropertyId propertyId = new PropertyId(UUID.randomUUID());
         RentalTerms initialTerms = new RentalTerms();
-        RentalOffer offer = new RentalOffer(offerId, propertyId, initialTerms, true);
         ClientId clientId = new ClientId(UUID.randomUUID());
         RentalTerms proposedTerms = new RentalTerms();
+        RentalTerms termsWithPriceChangeProposal = new RentalTerms();
+        RentalOffer offer = new RentalOffer(offerId, propertyId, initialTerms, true);
         //when
-        RentalOfferThread rentalOfferThread = offer.startNegotiationThread(clientId, initialTerms);
-        RentalOfferThread clientWantToChangePrice = rentalOfferThread.proposeTerms(proposedTerms);
+        RentalOfferThread threadWithChangedPrice = offer.startNegotiationThread(clientId, termsWithPriceChangeProposal);
+        RentalOfferThread clientWantToChangePrice = threadWithChangedPrice.proposeTerms(proposedTerms);
         RentalContract rentalContract = clientWantToChangePrice.acceptTerms();
         //then
     }
