@@ -3,6 +3,8 @@ package io.rece.rental.domain.core.rental.offer;
 import io.rece.common.valueobject.id.ClientId;
 import io.rece.common.valueobject.id.PropertyId;
 import io.rece.rental.domain.core.rental.RentalContract;
+import io.rece.rental.domain.core.rental.abs.offer.Offer;
+import io.rece.rental.domain.core.rental.abs.offer.OfferTerms;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
@@ -24,6 +26,14 @@ class RentalOfferFacadeTest {
         RentalOfferThread clientWantToChangePrice = threadWithChangedPrice.proposeTerms(proposedTerms);
         RentalContract rentalContract = clientWantToChangePrice.acceptTerms();
         //then
+    }
+
+    @Test
+    public void test_abstraction() {
+        Offer offer;
+        OfferTerms initialTerms;
+
+        offer.startNegotiation(new ClientId(UUID.randomUUID()), initialTerms);
     }
 
 }
