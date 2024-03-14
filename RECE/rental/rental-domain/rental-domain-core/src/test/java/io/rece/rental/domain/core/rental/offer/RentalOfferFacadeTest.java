@@ -4,7 +4,7 @@ import io.rece.common.valueobject.id.ClientId;
 import io.rece.common.valueobject.id.PropertyId;
 import io.rece.rental.domain.core.rental.RentalContract;
 import io.rece.rental.domain.core.rental.abs.offer.Offer;
-import io.rece.rental.domain.core.rental.abs.offer.OfferTerms;
+import io.rece.rental.domain.core.rental.abs.offer.terms.OfferTerms;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;

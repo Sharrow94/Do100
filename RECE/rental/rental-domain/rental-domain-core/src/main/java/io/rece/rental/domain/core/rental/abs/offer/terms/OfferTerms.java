@@ -1,4 +1,4 @@
-package io.rece.rental.domain.core.rental.abs.offer;
+package io.rece.rental.domain.core.rental.abs.offer.terms;
 
 import java.util.List;
 
