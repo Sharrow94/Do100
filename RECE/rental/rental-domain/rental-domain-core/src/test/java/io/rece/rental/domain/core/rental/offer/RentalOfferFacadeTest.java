@@ -33,7 +33,6 @@ class RentalOfferFacadeTest {
         Offer offer;
         OfferTerms initialTerms;
 
-        offer.startNegotiation(new ClientId(UUID.randomUUID()), initialTerms);
     }
 
 }
