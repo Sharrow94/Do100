@@ -2,6 +2,7 @@ package io.rece.rental.domain.core.rental.offer;
 
 import io.rece.common.valueobject.id.ClientId;
 import io.rece.rental.domain.core.rental.RentalContract;
+import io.rece.rental.domain.core.rental.abs.offer.terms.OfferTerms;
 
 import java.util.UUID;
 
@@ -10,9 +11,9 @@ public class RentalOfferThread {
     private RentalOfferThreadId parentId;
     private RentalOfferId offerId;
     private ClientId clientId;
-    private RentalTerms rentalTerms;
+    private OfferTerms rentalTerms;
 
-    public RentalOfferThread(RentalOfferId offerId, ClientId clientId, RentalTerms rentalTerms) {
+    public RentalOfferThread(RentalOfferId offerId, ClientId clientId, OfferTerms rentalTerms) {
         this.id = new RentalOfferThreadId(UUID.randomUUID());
         this.parentId = null;
         this.offerId = offerId;
@@ -20,7 +21,7 @@ public class RentalOfferThread {
         this.rentalTerms = rentalTerms;
     }
 
-    private RentalOfferThread(RentalOfferThreadId parentId, RentalOfferId offerId, ClientId clientId, RentalTerms rentalTerms) {
+    private RentalOfferThread(RentalOfferThreadId parentId, RentalOfferId offerId, ClientId clientId, OfferTerms rentalTerms) {
         this.id = new RentalOfferThreadId(UUID.randomUUID());
         this.parentId = parentId;
         this.offerId = offerId;
@@ -28,7 +29,7 @@ public class RentalOfferThread {
         this.rentalTerms = rentalTerms;
     }
 
-    public RentalOfferThread proposeTerms(RentalTerms offerTerms) {
+    public RentalOfferThread proposeTerms(OfferTerms offerTerms) {
         return new RentalOfferThread(this.id, this.offerId, this.clientId, offerTerms);
     }
 

@@ -1,11 +1,11 @@
-package io.rece.rental.domain.core.rental.ver2.impl.offer.terms;
+package io.rece.rental.domain.core.rental.offer.terms;
 
 
-import io.rece.rental.domain.core.rental.ver2.abs.offer.terms.OfferTerms;
-import io.rece.rental.domain.core.rental.ver2.abs.offer.terms.term.AbstractTerm;
-import io.rece.rental.domain.core.rental.ver2.impl.offer.terms.term.DepositTerm;
-import io.rece.rental.domain.core.rental.ver2.impl.offer.terms.term.PriceTerm;
-import io.rece.rental.domain.core.rental.ver2.impl.offer.terms.term.RentTerm;
+import io.rece.rental.domain.core.rental.abs.offer.terms.OfferTerms;
+import io.rece.rental.domain.core.rental.abs.offer.terms.term.AbstractTerm;
+import io.rece.rental.domain.core.rental.offer.terms.term.DepositTerm;
+import io.rece.rental.domain.core.rental.offer.terms.term.PriceTerm;
+import io.rece.rental.domain.core.rental.offer.terms.term.RentTerm;
 
 public class ApartmentTerms implements OfferTerms {
     private PriceTerm priceTerm;

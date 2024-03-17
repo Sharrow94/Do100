@@ -1,13 +1,22 @@
 package io.rece.rental.domain.core.rental.abs.offer;
 
+
 import io.rece.common.valueobject.id.ClientId;
+import io.rece.rental.domain.core.rental.abs.contract.Contract;
 import io.rece.rental.domain.core.rental.abs.offer.terms.OfferTerms;
+import io.rece.rental.domain.core.rental.offer.RentalOfferId;
 
-public interface Offer {
+public abstract class Offer {
 
-    void initOffer(OfferTerms terms);
+    private RentalOfferId offerId;
 
-    void accept();
+    protected abstract Contract acceptBy(ClientId clientId);
 
-    OfferThread startNegotiation(ClientId clientId, OfferTerms terms);
+    protected abstract OfferThread startNegotiation(String clientId, OfferTerms terms);
+
+    protected abstract OfferTerms getTerms();
+
+    public RentalOfferId getId() {
+        return this.offerId;
+    }
 }

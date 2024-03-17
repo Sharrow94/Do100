@@ -1,8 +1,8 @@
 package io.rece.rental.domain.core.rental.abs.offer.terms;
 
-import java.util.List;
+
+import io.rece.rental.domain.core.rental.abs.offer.terms.term.AbstractTerm;
 
 public interface OfferTerms {
-
-    List<Term> getTerms();
+    OfferTerms editTerm(AbstractTerm<?> editedTerm);
 }

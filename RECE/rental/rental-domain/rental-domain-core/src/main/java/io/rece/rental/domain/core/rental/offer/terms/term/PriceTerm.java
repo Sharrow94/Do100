@@ -1,7 +1,7 @@
-package io.rece.rental.domain.core.rental.ver2.impl.offer.terms.term;
+package io.rece.rental.domain.core.rental.offer.terms.term;
 
 
-import io.rece.rental.domain.core.rental.ver2.abs.offer.terms.term.AbstractTerm;
+import io.rece.rental.domain.core.rental.abs.offer.terms.term.AbstractTerm;
 
 import java.math.BigDecimal;
 
