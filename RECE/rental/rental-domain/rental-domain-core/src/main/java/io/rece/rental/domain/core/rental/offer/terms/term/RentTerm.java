@@ -1,13 +1,7 @@
 package io.rece.rental.domain.core.rental.offer.terms.term;
 
 
-import io.rece.rental.domain.core.rental.abs.offer.terms.term.AbstractTerm;
+import io.rece.common.valueobject.money.Money;
 
-import java.math.BigDecimal;
-
-public class RentTerm extends AbstractTerm<BigDecimal> {
-    public RentTerm(BigDecimal value) {
-        super(value);
-    }
-
+public record RentTerm(Money value) implements Term {
 }

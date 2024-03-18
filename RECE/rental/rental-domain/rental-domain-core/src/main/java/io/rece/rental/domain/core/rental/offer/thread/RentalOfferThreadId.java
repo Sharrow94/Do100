@@ -1,4 +1,4 @@
-package io.rece.rental.domain.core.rental.offer;
+package io.rece.rental.domain.core.rental.offer.thread;
 
 import io.rece.common.valueobject.id.BaseId;
 
