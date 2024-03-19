@@ -5,6 +5,7 @@ import io.rece.common.valueobject.id.ClientId;
 import io.rece.rental.domain.core.rental.contract.Contract;
 import io.rece.rental.domain.core.rental.contract.RentalContract;
 import io.rece.rental.domain.core.rental.offer.RentalOffer;
+import io.rece.rental.domain.core.rental.offer.RentalOfferId;
 import io.rece.rental.domain.core.rental.offer.terms.AbstractOfferTerms;
 import io.rece.rental.domain.core.rental.offer.terms.ApartmentTerms;
 import io.rece.rental.domain.core.rental.offer.thread.OfferThread;
@@ -13,6 +14,11 @@ import io.rece.rental.domain.core.rental.offer.thread.RentalOfferThread;
 public class ApartmentOffer extends RentalOffer {
 
     private ApartmentTerms terms;
+
+    public ApartmentOffer(RentalOfferId id, ApartmentTerms terms) {
+        super(id);
+        this.terms = terms;
+    }
 
     @Override
     public Contract acceptBy(ClientId clientId) {

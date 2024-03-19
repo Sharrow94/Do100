@@ -10,11 +10,15 @@ public abstract class RentalOffer {
 
     private RentalOfferId offerId;
 
-    protected abstract Contract acceptBy(ClientId clientId);
+    public RentalOffer(RentalOfferId offerId) {
+        this.offerId = offerId;
+    }
 
-    protected abstract OfferThread startNegotiation(ClientId clientId, AbstractOfferTerms terms);
+    public abstract Contract acceptBy(ClientId clientId);
 
-    protected abstract AbstractOfferTerms getTerms();
+    public abstract OfferThread startNegotiation(ClientId clientId, AbstractOfferTerms terms);
+
+    public abstract AbstractOfferTerms getTerms();
 
     public RentalOfferId getId() {
         return this.offerId;
