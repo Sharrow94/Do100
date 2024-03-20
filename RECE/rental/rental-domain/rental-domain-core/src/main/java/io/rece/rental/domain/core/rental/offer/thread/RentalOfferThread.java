@@ -32,7 +32,7 @@ public class RentalOfferThread implements OfferThread {
     }
 
     @Override
-    public Contract acceptThread() {
+    public Contract acceptThreadByOwner() {
         return new RentalContract(this.offerId, this.clientId, this.rentalTerms);
     }
 

@@ -33,6 +33,6 @@ public class LogicTest {
         RentalOffer offer = new ApartmentOffer(new RentalOfferId(UUID.randomUUID()), initialTerms);
         //when
         OfferThread offerThread = offer.startNegotiation(client, suggestionFromClient);
-
+        offerThread.acceptThreadByOwner();
     }
 }

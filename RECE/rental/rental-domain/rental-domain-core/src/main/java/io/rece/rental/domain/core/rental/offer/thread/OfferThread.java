@@ -6,7 +6,7 @@ import io.rece.rental.domain.core.rental.offer.terms.AbstractOfferTerms;
 
 public interface OfferThread {
 
-    Contract acceptThread();
+    Contract acceptThreadByOwner();
 
     OfferThread suggestChange(AbstractOfferTerms terms);
 }
