@@ -8,5 +8,7 @@ public interface OfferThread {
 
     Contract acceptThreadByOwner();
 
+    Contract acceptThreadByClient();
+
     OfferThread suggestChange(AbstractOfferTerms terms);
 }

@@ -37,6 +37,11 @@ public class RentalOfferThread implements OfferThread {
     }
 
     @Override
+    public Contract acceptThreadByClient() {
+        return null;
+    }
+
+    @Override
     public OfferThread suggestChange(AbstractOfferTerms terms) {
         return new RentalOfferThread(this.id, this.offerId, this.clientId, rentalTerms);
     }

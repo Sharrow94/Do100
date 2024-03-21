@@ -34,5 +34,6 @@ public class LogicTest {
         //when
         OfferThread offerThread = offer.startNegotiation(client, suggestionFromClient);
         offerThread.acceptThreadByOwner();
+        offerThread.acceptThreadByClient();
     }
 }
