@@ -1,8 +1,7 @@
-package io.rece.inventory.compartment.segment;
+package io.rece.inventory.compartment.type;
 
-import io.rece.inventory.LegType;
 import io.rece.inventory.Station;
-import io.rece.inventory.compartment.leg.CompartmentLegType;
+import io.rece.inventory.compartment.Leg;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -33,7 +32,7 @@ public class CompartmentSegmentType {
         return compartmentLegTypes.get(compartmentLegTypes.size() - 1).getDestinationStation();
     }
 
-    public List<LegType> getLegTypes() {
+    public List<Leg> getLegTypes() {
         return compartmentLegTypes.stream().map(CompartmentLegType::getLegType).collect(Collectors.toList());
     }
 }

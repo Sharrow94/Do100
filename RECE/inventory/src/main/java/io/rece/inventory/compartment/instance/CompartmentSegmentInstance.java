@@ -1,32 +1,30 @@
-package io.rece.inventory.compartment.segment;
+package io.rece.inventory.compartment.instance;
 
 
 import io.rece.inventory.ClassOfTravel;
-import io.rece.inventory.Seat;
 import io.rece.inventory.Station;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 public class CompartmentSegmentInstance {
     private ClassOfTravel classOfTravel;
-    private List<Seat> seats;
+    private CompartmentLegInstance compartmentLegInstance;
 
     public Station getOriginStation() {
-        return null;
+        return compartmentLegInstance.getOriginStation();
     }
 
     public Station getDestinationStation() {
-        return null;
+        return compartmentLegInstance.getDestinationStation();
     }
 
     public LocalDateTime getTimeOfDeparture() {
-        return null;
+        return compartmentLegInstance.getTimeOfDeparture();
     }
 
     public LocalDateTime getTimeOfArrival() {
-        return null;
+        return compartmentLegInstance.getTimeOfArrival();
     }
 }

@@ -1,6 +1,6 @@
 package io.rece.inventory;
 
-import io.rece.inventory.compartment.segment.CompartmentSegmentInstance;
+import io.rece.inventory.compartment.instance.CompartmentSegmentInstance;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

@@ -1,5 +1,7 @@
 import io.rece.inventory.*;
-import io.rece.inventory.compartment.segment.CompartmentSegmentInstance;
+import io.rece.inventory.compartment.Leg;
+import io.rece.inventory.compartment.instance.CompartmentSegmentInstance;
+import io.rece.inventory.compartment.instance.LegInstance;
 import org.junit.jupiter.api.Test;
 
 import java.time.format.DateTimeFormatter;
@@ -15,8 +17,8 @@ class ArchetypePatternsImplementationApplicationTests {
     @Test
     void build_train() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LegType firstLegType = new LegType(new Station("Poznań"), new Station("Łódź"));
-        LegType secondLegType = new LegType(new Station("Łódź"), new Station("Warszawa"));
+        Leg firstLegType = new Leg(new Station("Poznań"), new Station("Łódź"));
+        Leg secondLegType = new Leg(new Station("Łódź"), new Station("Warszawa"));
 
         LegInstance firstLegInstance = new LegInstance(firstLegType, parse("2024-03-23 12:15", formatter), parse("2024-03-23 14:15", formatter));
         LegInstance secondLegInstance = new LegInstance(secondLegType, parse("2024-03-23 14:30", formatter), parse("2024-03-23 17:00", formatter));

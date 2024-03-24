@@ -1,11 +1,12 @@
-package io.rece.inventory;
+package io.rece.inventory.compartment;
 
+import io.rece.inventory.Station;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class LegType {
+public class Leg {
     private Station originStation;
     private Station destinationStation;
 }
