@@ -45,8 +45,16 @@ class ArchetypePatternsImplementationApplicationTests {
 
     private CompartmentSegmentInstance prepareCompartmentSegment(List<Seat> seats, ClassOfTravel classOfTravel) {
         CompartmentSegmentInstance compartmentSegment = new CompartmentSegmentInstance();
-        compartmentSegment.setSeats(seats);
         compartmentSegment.setClassOfTravel(classOfTravel);
         return compartmentSegment;
+    }
+
+    @Test
+    public void sell_ticket() {
+        //given
+        TicketService ticketService;
+        //when
+
+        //then
     }
 }

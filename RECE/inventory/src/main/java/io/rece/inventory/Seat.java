@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Seat {
-    private int seatNumber;
+    private String seatNumber;
 }
