@@ -1,17 +1,23 @@
-import io.rece.inventory.ClassOfTravel;
 import io.rece.inventory.Seat;
 import io.rece.inventory.Station;
 import io.rece.inventory.compartment.Leg;
 import io.rece.inventory.compartment.instance.CompartmentSegmentInstance;
 import io.rece.inventory.compartment.instance.LegInstance;
+import io.rece.inventory.compartment.type.CompartmentLegType;
+import io.rece.inventory.compartment.type.CompartmentSegmentType;
+import io.rece.inventory.ticket.JourneySearchEngine;
+import io.rece.inventory.ticket.TicketService;
+import io.rece.inventory.ticket.TicketServiceImpl;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.stream.Stream;
 
+import static io.rece.inventory.ClassOfTravel.FIRST;
 import static java.time.LocalDateTime.parse;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static java.util.List.of;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ArchetypeImplementationTest {
 
@@ -25,21 +31,50 @@ public class ArchetypeImplementationTest {
         LegInstance legInstance1 = new LegInstance(leg1, parse("2024-03-23 12:15", formatter), parse("2024-03-23 14:15", formatter));
         LegInstance legInstance2 = new LegInstance(leg2, parse("2024-03-23 14:30", formatter), parse("2024-03-23 16:15", formatter));
 
-        CompartmentSegmentInstance ticket1 = new CompartmentSegmentInstance(ClassOfTravel.FIRST, new Seat("L01"));
-        ticket1.createTicketForRoutes(List.of(legInstance1, legInstance2));
+        Seat seat_L01 = new Seat("L01");
+        CompartmentSegmentInstance ticket1 = new CompartmentSegmentInstance(FIRST, seat_L01, of(legInstance1, legInstance2));
+        Seat seat_L02 = new Seat("L02");
+        CompartmentSegmentInstance ticket2 = new CompartmentSegmentInstance(FIRST, seat_L02, of(legInstance2));
 
-        CompartmentSegmentInstance ticket2 = new CompartmentSegmentInstance(ClassOfTravel.FIRST, new Seat("L02"));
-        ticket2.createTicketForRoutes(List.of(legInstance2));
-
-        Seat seat=new Seat("L01");
-
-        assertFalse(canBeReserved(Stream.of(ticket1,ticket2),seat,legInstance2));
+        List<CompartmentSegmentInstance> existingTickets = List.of(ticket1, ticket2);
+        assertFalse(canBeReserved(existingTickets, seat_L01, legInstance2));
+        assertTrue(canBeReserved(existingTickets, seat_L02, legInstance1));
     }
 
-    public boolean canBeReserved(Stream<CompartmentSegmentInstance>tickets,Seat seat,LegInstance legInstance){
-        return tickets
-                .flatMap(ticket->ticket.getCompartmentLegInstances().stream())
+    @Test
+    public void buyTicket() {
+        //given
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        JourneySearchEngine journeySearchEngine = Mockito.mock(JourneySearchEngine.class);
+        TicketService ticketService = new TicketServiceImpl(journeySearchEngine);
+
+        Leg leg1 = new Leg(new Station("Poznań"), new Station("Łódź"));
+        Leg leg2 = new Leg(new Station("Łódź"), new Station("Warszawa"));
+        Seat seat = new Seat("L01");
+
+        CompartmentLegType compartmentLegType1 = new CompartmentLegType(FIRST, leg1);
+        CompartmentLegType compartmentLegType2 = new CompartmentLegType(FIRST, leg2);
+
+        CompartmentSegmentType compartmentSegmentType = new CompartmentSegmentType();
+        compartmentSegmentType.setCompartmentLegTypes(of(compartmentLegType1, compartmentLegType2));
+
+        LegInstance legInstance1 = new LegInstance(leg1, parse("2024-03-23 12:15", formatter), parse("2024-03-23 14:15", formatter));
+        LegInstance legInstance2 = new LegInstance(leg2, parse("2024-03-23 14:30", formatter), parse("2024-03-23 16:15", formatter));
+
+        List<LegInstance> legInstanceList = of(legInstance1, legInstance2);
+        Mockito.when(journeySearchEngine.getRoute(List.of(leg1, leg2))).thenReturn(legInstanceList);
+        //when
+        CompartmentSegmentInstance ticket = ticketService.bookTicket(compartmentSegmentType, seat);
+        //then
+        assertEquals(new Station("Poznań"), ticket.getOriginStation());
+        assertEquals(new Station("Warszawa"), ticket.getDestinationStation());
+        assertEquals(seat, ticket.getSeat());
+    }
+
+    public boolean canBeReserved(List<CompartmentSegmentInstance> tickets, Seat seat, LegInstance legInstance) {
+        return tickets.stream()
+                .flatMap(ticket -> ticket.getCompartmentLegInstances().stream())
                 .filter(compartmentLegInstance -> compartmentLegInstance.getLegInstance().equals(legInstance))
-                .noneMatch(compartmentLegInstance ->compartmentLegInstance.getSeat().equals(seat));
+                .noneMatch(compartmentLegInstance -> compartmentLegInstance.getSeat().equals(seat));
     }
 }

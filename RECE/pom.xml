@@ -17,11 +17,8 @@
     </parent>
 
     <modules>
-        <module>property</module>
         <module>tokenization</module>
-        <module>management</module>
         <module>common</module>
-        <module>rental</module>
         <module>inventory</module>
     </modules>
 

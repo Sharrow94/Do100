@@ -7,7 +7,6 @@ import io.rece.inventory.Station;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,16 +16,17 @@ public class CompartmentSegmentInstance {
     private final Seat seat;
     private List<CompartmentLegInstance> compartmentLegInstances;
 
-    public CompartmentSegmentInstance(ClassOfTravel classOfTravel,Seat seat) {
-       this.classOfTravel=classOfTravel;
-       this.seat=seat;
+    public CompartmentSegmentInstance(ClassOfTravel classOfTravel, Seat seat, List<LegInstance> route) {
+        this.classOfTravel = classOfTravel;
+        this.seat = seat;
+        setRoute(route);
     }
 
-    public void createTicketForRoutes(List<LegInstance>legInstances){
-        if (legInstances.isEmpty()){
-            throw  new RuntimeException("List cant be empty");
+    private void setRoute(List<LegInstance> legInstances) {
+        if (legInstances.isEmpty()) {
+            throw new RuntimeException("List cant be empty");
         }
-        compartmentLegInstances=legInstances.stream().map(legInstance -> new CompartmentLegInstance(classOfTravel, seat,legInstance)).collect(Collectors.toList());
+        compartmentLegInstances = legInstances.stream().map(legInstance -> new CompartmentLegInstance(classOfTravel, seat, legInstance)).collect(Collectors.toList());
     }
 
     public Station getOriginStation() {
@@ -37,7 +37,7 @@ public class CompartmentSegmentInstance {
     }
 
     public Station getDestinationStation() {
-        return compartmentLegInstances.get(compartmentLegInstances.size()-1).getDestinationStation();
+        return compartmentLegInstances.get(compartmentLegInstances.size() - 1).getDestinationStation();
     }
 
     public LocalDateTime getTimeOfDeparture() {
@@ -45,10 +45,10 @@ public class CompartmentSegmentInstance {
     }
 
     public LocalDateTime getTimeOfArrival() {
-        return compartmentLegInstances.get(compartmentLegInstances.size()-1).getTimeOfArrival();
+        return compartmentLegInstances.get(compartmentLegInstances.size() - 1).getTimeOfArrival();
     }
 
-    public String getSeatNumber(){
+    public String getSeatNumber() {
         return seat.getSeatNumber();
     }
 }
