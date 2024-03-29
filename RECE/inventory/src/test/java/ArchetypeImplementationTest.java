@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static io.rece.inventory.ClassOfTravel.FIRST;
+import static io.rece.inventory.ClassOfTravel.SECOND;
 import static java.time.LocalDateTime.parse;
 import static java.util.List.of;
 import static org.junit.jupiter.api.Assertions.*;
@@ -53,7 +54,7 @@ public class ArchetypeImplementationTest {
         Seat seat = new Seat("L01");
 
         CompartmentLegType compartmentLegType1 = new CompartmentLegType(FIRST, leg1);
-        CompartmentLegType compartmentLegType2 = new CompartmentLegType(FIRST, leg2);
+        CompartmentLegType compartmentLegType2 = new CompartmentLegType(SECOND, leg2);
 
         CompartmentSegmentType compartmentSegmentType = new CompartmentSegmentType();
         compartmentSegmentType.setCompartmentLegTypes(of(compartmentLegType1, compartmentLegType2));

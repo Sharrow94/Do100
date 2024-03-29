@@ -51,4 +51,8 @@ public class CompartmentSegmentInstance {
     public String getSeatNumber() {
         return seat.getSeatNumber();
     }
+
+    public ClassOfTravel getClassOfTravel(){
+        return this.classOfTravel;
+    }
 }
