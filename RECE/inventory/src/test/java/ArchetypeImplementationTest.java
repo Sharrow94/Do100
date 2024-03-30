@@ -72,6 +72,11 @@ public class ArchetypeImplementationTest {
         assertEquals(seat, ticket.getSeat());
     }
 
+    @Test
+    public void test_build_train_route() {
+
+    }
+
     public boolean canBeReserved(List<CompartmentSegmentInstance> tickets, Seat seat, LegInstance legInstance) {
         return tickets.stream()
                 .flatMap(ticket -> ticket.getCompartmentLegInstances().stream())

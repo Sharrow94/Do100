@@ -16,6 +16,7 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public CompartmentSegmentInstance bookTicket(CompartmentSegmentType compartmentSegmentType, Seat seat) {
         List<LegInstance> route = journeySearchEngine.getRoute(compartmentSegmentType.getLegTypes());
-        return new CompartmentSegmentInstance(compartmentSegmentType.getClassOfTravel(), seat, route);
+//        return new CompartmentSegmentInstance(compartmentSegmentType, seat, route);
+        return null;
     }
 }

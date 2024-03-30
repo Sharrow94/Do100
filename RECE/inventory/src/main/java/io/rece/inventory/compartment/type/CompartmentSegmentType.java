@@ -1,6 +1,5 @@
 package io.rece.inventory.compartment.type;
 
-import io.rece.inventory.ClassOfTravel;
 import io.rece.inventory.Station;
 import io.rece.inventory.compartment.Leg;
 import lombok.Data;
@@ -11,7 +10,6 @@ import java.util.stream.Collectors;
 
 @Data
 public class CompartmentSegmentType {
-    private ClassOfTravel classOfTravel;
     private LocalDateTime startOfPeriodOfOperation;
     private LocalDateTime endOfPeriodOfOperation;
     private List<CompartmentLegType> compartmentLegTypes;
