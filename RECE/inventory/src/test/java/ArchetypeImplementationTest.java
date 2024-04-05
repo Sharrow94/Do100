@@ -5,7 +5,6 @@ import io.rece.inventory.compartment.instance.CompartmentSegmentInstance;
 import io.rece.inventory.compartment.instance.LegInstance;
 import io.rece.inventory.compartment.type.CompartmentLegType;
 import io.rece.inventory.compartment.type.CompartmentSegmentType;
-import io.rece.inventory.ticket.JourneySearchEngine;
 import io.rece.inventory.ticket.TicketService;
 import io.rece.inventory.ticket.TicketServiceImpl;
 import org.junit.jupiter.api.Test;
