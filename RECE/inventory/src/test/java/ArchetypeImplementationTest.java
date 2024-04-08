@@ -60,13 +60,6 @@ public class ArchetypeImplementationTest {
         LegInstance legInstance2 = new LegInstance(leg2, parse("2024-03-23 14:30", formatter), parse("2024-03-23 16:15", formatter));
 
         List<LegInstance> legInstanceList = of(legInstance1, legInstance2);
-//        Mockito.when(journeySearchEngine.getRoute(List.of(leg1, leg2))).thenReturn(legInstanceList);
-        //when
-//        CompartmentSegmentInstance ticket = ticketService.bookTicket(compartmentSegmentType, seat);
-        //then
-//        assertEquals(new Station("Poznań"), ticket.getOriginStation());
-//        assertEquals(new Station("Warszawa"), ticket.getDestinationStation());
-//        assertEquals(seat, ticket.getSeat());
     }
 
     @Test
