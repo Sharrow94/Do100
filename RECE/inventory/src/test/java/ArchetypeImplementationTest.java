@@ -62,10 +62,6 @@ public class ArchetypeImplementationTest {
         List<LegInstance> legInstanceList = of(legInstance1, legInstance2);
     }
 
-    @Test
-    public void test_build_train_route() {
-
-    }
 
     public boolean canBeReserved(List<CompartmentSegmentInstance> tickets, Seat seat, LegInstance legInstance) {
         return tickets.stream()
