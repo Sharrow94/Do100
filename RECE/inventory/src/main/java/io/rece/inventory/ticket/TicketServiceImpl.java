@@ -11,7 +11,6 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public CompartmentSegmentInstance bookTicket(CompartmentSegmentType compartmentSegmentType, Seat seat) {
-//        return new CompartmentSegmentInstance(compartmentSegmentType, seat, route);
         return null;
     }
 }
