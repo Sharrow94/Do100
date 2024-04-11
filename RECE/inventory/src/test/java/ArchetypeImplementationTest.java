@@ -43,8 +43,6 @@ public class ArchetypeImplementationTest {
     public void buyTicket() {
         //given
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-//        JourneySearchEngine journeySearchEngine = Mockito.mock(JourneySearchEngine.class);
-//        TicketService ticketService = new TicketServiceImpl(journeySearchEngine);
 
         Leg leg1 = new Leg(new Station("Poznań"), new Station("Łódź"));
         Leg leg2 = new Leg(new Station("Łódź"), new Station("Warszawa"));
