@@ -53,7 +53,6 @@ public class ArchetypeImplementationTest {
 
         CompartmentSegmentType compartmentSegmentType = new CompartmentSegmentType();
         compartmentSegmentType.setCompartmentLegTypes(of(compartmentLegType1, compartmentLegType2));
-
         LegInstance legInstance1 = new LegInstance(leg1, parse("2024-03-23 12:15", formatter), parse("2024-03-23 14:15", formatter));
         LegInstance legInstance2 = new LegInstance(leg2, parse("2024-03-23 14:30", formatter), parse("2024-03-23 16:15", formatter));
 
