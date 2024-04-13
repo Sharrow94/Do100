@@ -44,6 +44,7 @@ public class ArchetypeImplementationTest {
         //given
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
+
         Leg leg1 = new Leg(new Station("Poznań"), new Station("Łódź"));
         Leg leg2 = new Leg(new Station("Łódź"), new Station("Warszawa"));
         Seat seat = new Seat("L01");
