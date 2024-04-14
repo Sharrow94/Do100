@@ -48,7 +48,6 @@ public class ArchetypeImplementationTest {
         Leg leg1 = new Leg(new Station("Poznań"), new Station("Łódź"));
         Leg leg2 = new Leg(new Station("Łódź"), new Station("Warszawa"));
         Seat seat = new Seat("L01");
-
         CompartmentLegType compartmentLegType1 = new CompartmentLegType(FIRST, leg1);
         CompartmentLegType compartmentLegType2 = new CompartmentLegType(SECOND, leg2);
 
